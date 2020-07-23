@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/white-logo-240x90.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Home</title>
+  <link rel="stylesheet" href="{% static 'assets/font-awesome-solid/../css/fontawesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/font-awesome-solid/css/solid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/facebook-plugin/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/tether/tether.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/animatecss/animate.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/dropdown/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+  
+  
+  
+</head>
+<body>
+
+<section id='top-1'></section>
+
+
+  <section class="menu cid-rTnUSybAbk" once="menu" id="menu1-0">
+
+    
+
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="menu-logo">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="http://iitjammu.ac.in/">
+                         <img src="{% static 'assets/images/white-logo-240x90.png'%}" alt="IIT JAMMU" title="" style="height: 4.6rem;">
+                    </a>
+                </span>
+                
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-primary display-5" href="index"><span class="fas fa-fw fa-sign-out-alt mbr-iconfont mbr-iconfont-btn"></span>
+                        Log Out</a>
+                </li></ul>
+            
+        </div>
+    </nav>
+</section>
+
+<section class="header1 cid-Sz0bKVRCCi" id="design-block-Sz0bKVRCCi">
+
+    
+
+    
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="mbr-white col-md-10">
+                <h1 class="mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-1">STUDENT ZONE</h1>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1428.75 62.05">
+    <path class="wave" d="M-114,132s185,44,434,18c0,0,304-41,551,0,0,0,290.5,57.25,443.75.13v43.69H-114Z" transform="translate(114 -131.78)"></path>
+  </svg>
+  
+</section>
+
+<section class="cid-rTnVAn9rqv" id="image3-5">
+
+    
+    
+    <figure class="mbr-figure container">
+            <div class="image-block" style="width: 76%;">
+                <h2 style ="text-align: center; color: Yellow; font-weight: 30px;"> MESS MENU </h2>
+                <img src = "{% static 'images/MessMenu.jpg'%}" width="2000px" style="opacity: 1.0;">
+                
+            </div>
+    </figure>
+</section>
+
+<section class="mbr-section form1 cid-rTnVFPOXcZ" id="form1-6">
+
+    
+
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="title col-12 col-lg-8">
+                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">Your Feedback is Valuable for Us</h2>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="media-container-column col-lg-8" data-form-type="formoid">
+               
+                <form action="student" method="POST" class="mbr-form form-with-styler" >
+                    {% csrf_token %}
+                    
+                    <div class="dragArea row">
+                        <div class="col-md-4  form-group" data-for="name">
+                            <label for="name-form1-6" class="form-control-label mbr-fonts-style display-7">Name</label>
+                            <input type="text" name="name" data-form-field="Name" required="required" class="form-control display-7" id="name-form1-6">
+                        </div>
+                        <div class="col-md-4  form-group" data-for="name">
+                            <label for="name-form1-6" class="form-control-label mbr-fonts-style display-7">Entry No.</label>
+                            <input type="text" name="entry" data-form-field="Entry" required="required" class="form-control display-7" id="entry-form1-6">
+                        </div>
+                        
+                        <div data-for="date" class="col-md-4  form-group">
+                            <label for="date-form1-6" class="form-control-label mbr-fonts-style display-7">Date</label>
+                            <input type="date" name="date" data-form-field="Date" class="form-control display-7" id="date-form1-6">
+                        </div>
+                        
+                        <div data-for="date" class="col-md-4  form-group">
+                            <label for="name-form1-6" class="form-control-label mbr-fonts-style display-7">Meal</label>
+                            <select type="text" name="meal" data-form-field="Name" required="required" class="form-control display-7" id="meal-form1-6">
+
+                              <option value="breakfast">Choose from these</option>
+                              <option value="breakfast">Breakfast</option>
+                              <option value="lunch">Lunch</option>
+                              <option value="dinner">Dinner</option>
+                                
+                            </select>
+                        </div>
+                        
+                        <div data-for="message" class="col-md-12 form-group">
+                            <label for="message-form1-6" class="form-control-label mbr-fonts-style display-7">Message</label>
+                            <textarea name="message" data-form-field="Message" class="form-control display-7" id="message-form1-6"></textarea>
+                        </div>
+                        <div class="col-md-12 input-group-btn align-center">
+                            <button type="submit" class="btn btn-primary btn-form display-4" name="fromstudent">SEND FORM</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cid-NppKAkCksz" id="design-block-NppKAkCksz">
+
+    
+
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3510.8 349.9">
+      <path class="wave1" d="M1538.6,349.9c-8.5-5.8-17-11.5-25.4-17.2c-201.1-134-443.1-203.1-683.1-195.3c-227.5,7.5-446.5,85.8-635.3,212.4H1538.6z"></path>
+      <path class="wave2" d="M3510.8,204.2c-20.4-11.2-41.6-21.2-62.2-29.5c-82.7-33.3-189.3-48.1-283.7-29.4c-145.5,29-226.9,126.3-365.6,165.7c-122,34.6-266.8,18.4-392.2-11.3c-243.9-57.8-476.4-125.1-746.4-111c-148,7.7-291,38.8-421.4,82c-134.5,44.6-293.8,106.7-448.7,58.3c-131.8-41.3-200.4-132.1-322.4-182c-91.2-37.3-207.8-50.7-315.1-36.3C98,118.1,45.7,132.9,0,153.3v197.2h3510.8V204.2z"></path>
+      <path class="wave1" d="M3510.8,282.8c-117.5-97.4-255.6-201.2-413.4-176.4c-111.4,17.5-184.7,114-282.7,161c-127.3,61-227.1-16.9-341-69.3c-153.7-70.6-343.6-51.4-480.7,48.6c-42.4,31-83,70-125.2,103.2h1643V282.8z"></path>
+      <path class="wave1" d="M3510.8,161.9c-21.6-2.7-43-3.1-62.3-1.6c-73,5.5-142.2,33.4-209.5,62.3c-67.3,28.9-134.9,59.4-207.2,70.9c-241.2,38.3-440.7-133.6-663.5-189c-201.9-50.2-415.8-6.8-611.8,62.6c-199.5,70.6-405.5,169.7-612.9,127.5c-146-29.7-268.2-125.9-403.1-189.1C501.4-6.7,247.5-4.2,0,50.1v299.8h3510.8V161.9z"></path>
+    </svg>
+  
+</section>
+
+
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'assets/popper/popper.min.js'%}"></script>
+ 
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'assets/tether/tether.min.js'%}"></script>
+  <script src="{% static 'assets/viewportchecker/jquery.viewportchecker.js'%}"></script>
+  <script src="{% static 'assets/dropdown/js/nav-dropdown.js'%}"></script>
+  <script src="{% static 'assets/dropdown/js/navbar-dropdown.js'%}"></script>
+  <script src="{% static 'assets/touchswipe/jquery.touch-swipe.min.js'%}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js'%}"></script>
+  <script src="{% static 'assets/theme/js/script.js'%}"></script>
+
+  
+  
+ <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+    <input name="animation" type="hidden">
+  </body>
+</html>

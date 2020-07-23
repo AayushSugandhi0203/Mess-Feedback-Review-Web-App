@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+{% load static %}
+<html  >
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'assets/images/white-logo-240x90.png'%}" type="image/x-icon">
+  
+  
+  
+  <title>Admin </title>
+  <link rel="stylesheet" href="{% static 'assets/font-awesome-solid/../css/fontawesome.min.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/font-awesome-solid/css/solid.min.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/facebook-plugin/style.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/animatecss/animate.min.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/dropdown/css/style.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/datatables/data-tables.bootstrap4.min.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/tether/tether.min.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css'%}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css'%}" type="text/css">
+  
+  
+  
+</head>
+<style>
+  #modalOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 99999;
+      height: 100%;
+      width: 100%;
+  }
+.modalPopup {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      width: 50%;
+      padding: 0 0 30px;
+      padding-left: -25px;
+      
+      -webkit-box-shadow: 0 2px 10px 3px rgba(0,0,0,.2);
+      -moz-box-shadow: 0 2px 10px 3px rgba(0,0,0,.2);
+      box-shadow: 0 2px 10px 3px rgba(0,0,0,.2);
+  }
+.modalContent {padding: 0 2em;}
+.headerBar {
+    width: 50%;
+    background: #edcb04 url(http://cognex.com/gfx/site/bg-global-header.png) repeat-x 0 0;
+    margin: 0;
+    text-align: center;
+  }
+.headerBar img {
+    margin: 1em .7em;
+  }
+h1,h4 {
+    margin-bottom: .2em;
+  font-size: 26px;
+  text-transform: capitalize;
+  text-align: center;
+  color : Blue;
+}
+h1{
+  margin-top: 1em;
+
+}
+
+p {margin: .75em 0 1.5em;}
+.buttonStyle {
+    border: transparent;
+    border-radius: 2px;
+    background: #6d6d6d;
+    color: #eee !important;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 6px 25px;
+    margin-left: 310px;
+    text-decoration: none;
+
+    background: -moz-linear-gradient(top, #6d6d6d 0%, #1e1e1e 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6d6d6d), color-stop(100%,#1e1e1e));
+    background: -webkit-linear-gradient(top, #6d6d6d 0%,#1e1e1e 100%);
+    background: -o-linear-gradient(top, #6d6d6d 0%,#1e1e1e 100%);
+    background: -ms-linear-gradient(top, #6d6d6d 0%,#1e1e1e 100%);
+    background: linear-gradient(to bottom, #6d6d6d 0%,#1e1e1e 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d6d6d', endColorstr='#1e1e1e',GradientType=0 );
+  /*  -webkit-box-shadow: 0 2px 4px 0 #999;
+    box-shadow: 0 2px 4px 0 #999; */
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+  }
+  .buttonStyle:hover {
+    background: #1e1e1e;
+    color: #fff;
+    background: -moz-linear-gradient(top, #1e1e1e 0%, #6d6d6d 100%, #6d6d6d 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e1e1e), color-stop(100%,#6d6d6d), color-stop(100%,#6d6d6d));
+    background: -webkit-linear-gradient(top, #1e1e1e 0%,#6d6d6d 100%,#6d6d6d 100%);
+    background: -o-linear-gradient(top, #1e1e1e 0%,#6d6d6d 100%,#6d6d6d 100%);
+    background: -ms-linear-gradient(top, #1e1e1e 0%,#6d6d6d 100%,#6d6d6d 100%);
+    background: linear-gradient(to bottom, #1e1e1e 0%,#6d6d6d 100%,#6d6d6d 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1e1e', endColorstr='#6d6d6d',GradientType=0 );
+  }
+.returnToProfile {text-align: center; margin:3em;}
+.returnToProfile a, .returnToProfile a:visited {color: #ddd;}
+.returnToProfile a:hover {color: #fff;}
+
+
+
+</style>
+
+
+<body>
+
+<section id='top-1'></section>
+
+
+  <section class="menu cid-rTnUSybAbk" once="menu" id="menu1-e">
+
+    
+
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="menu-logo">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="http://iitjammu.ac.in/">
+                         <img src="{% static 'assets/images/white-logo-240x90.png'%}" alt="IIT JAMMU" title="" style="height: 4.6rem;">
+                    </a>
+                </span>
+                
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-primary display-5" href="index"><span class="fas fa-fw fa-sign-out-alt mbr-iconfont mbr-iconfont-btn"></span>
+                        Log Out</a>
+                </li></ul>
+            
+        </div>
+    </nav>
+</section>
+
+
+<div id="modalOverlay" style ="border-color: Yellow; border-radius: 3em;">
+    <div class="modalPopup">
+      <div class="headerBar">
+        
+      </div>
+      <div class="modalContent" style ="border-color: Yellow;  border-radius: 3em;">
+          <h1 style="padding-top: 3px; text-align: center; color: Blue; font-weight: 3px;">Welcome</h1>
+           <h4 >Vishwas Modanwal</h4>
+           <button class="buttonStyle" id="button" style="padding-left: : 70px;">Close</button>
+      </div>
+    </div>
+  </div>
+
+
+<section class="header4 cid-rTo7GeNYos mbr-parallax-background" id="header4-i">
+
+    
+
+    
+
+    <div class="container" style="margin-top: 150px; margin-bottom: 220px;">
+        <div class="row justify-content-md-center">
+            <div class="media-content col-md-10">
+                
+                
+                <div class="mbr-text align-center mbr-white pb-3">
+                    
+                </div>
+                
+            </div>
+            <div class="mbr-figure pt-5" style="width: 85%;">
+              <form action="adminpanel" method = "post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h2 style ="text-align: center; color: Yellow; font-weight: 30px;">Upload New MESS MENU </h2><br><br>
+                <label for="myfile"><h1 style="font-weight: bold; font-size: 20px; color: Black; ">Select a file: &nbsp &nbsp</h1></label>
+                <input type="file" id="myfile" name="myfile">
+                <input type="submit"> </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-table cid-rTo844iALJ" id="table1-j">
+
+  
+  
+  <div class="container container-table">
+      <h2 class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">FEEDBACK Statistics</h2>
+      
+      <div class="table-wrapper">
+        <div class="container">
+          <div class="row search">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <div class="dataTables_filter">
+                  <label class="searchInfo mbr-fonts-style display-7">Search:</label>
+                  <input class="form-control input-sm" disabled="">
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container scroll" class="pagination">
+          <table class="table isSearch" cellspacing="0">
+            <thead>
+              <tr class="table-heads ">
+                  
+                  
+                  
+                  
+              <th class="head-item mbr-fonts-style display-7">NAME</th>
+              <th class="head-item mbr-fonts-style display-7">Entry No.</th>
+              <th class="head-item mbr-fonts-style display-7">DATE</th>
+              <th class="head-item mbr-fonts-style display-7">Meal</th>
+              <th class="head-item mbr-fonts-style display-7">Comments</th>
+              <th class="head-item mbr-fonts-style display-7">Review</th>
+              
+            </tr>
+            </thead>
+
+            <tbody>
+              
+              
+              
+            {%for i in feed %}  
+            <tr> 
+                
+                
+                
+                
+              <td class="body-item mbr-fonts-style display-7">{{i.name}}</td>
+              <td class="body-item mbr-fonts-style display-7">{{i.entry}}</td>
+              <td class="body-item mbr-fonts-style display-7">{{i.date}}</td>
+              <td class="body-item mbr-fonts-style display-7">{{i.meal}}</td>
+              <td class="body-item mbr-fonts-style display-7">{{i.text}}</td>
+              <td class="body-item mbr-fonts-style display-7">{{i.review}}</td>
+              </tr>
+              
+              {% endfor %}
+          </table>
+        </div>
+        <div class="container table-info-container">
+          <div class="row info">
+            <div class="col-md-6">
+              <div class="dataTables_info mbr-fonts-style display-7">
+                <span class="infoBefore">Showing</span>
+                <span class="inactive infoRows"></span>
+                <span class="infoAfter">entries</span>
+                <span class="infoFilteredBefore">(filtered from</span>
+                <span class="inactive infoRows"></span>
+                <span class="infoFilteredAfter"> total entries)</span>
+              </div>
+            </div>
+            <div class="col-md-6"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section> 
+
+ <!-------Copied Teable -->
+ 
+
+<section class="cid-rTo85tyFfr" id="design-block-k">
+
+    
+
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3510.8 349.9">
+      <path class="wave1" d="M1538.6,349.9c-8.5-5.8-17-11.5-25.4-17.2c-201.1-134-443.1-203.1-683.1-195.3c-227.5,7.5-446.5,85.8-635.3,212.4H1538.6z"></path>
+      <path class="wave2" d="M3510.8,204.2c-20.4-11.2-41.6-21.2-62.2-29.5c-82.7-33.3-189.3-48.1-283.7-29.4c-145.5,29-226.9,126.3-365.6,165.7c-122,34.6-266.8,18.4-392.2-11.3c-243.9-57.8-476.4-125.1-746.4-111c-148,7.7-291,38.8-421.4,82c-134.5,44.6-293.8,106.7-448.7,58.3c-131.8-41.3-200.4-132.1-322.4-182c-91.2-37.3-207.8-50.7-315.1-36.3C98,118.1,45.7,132.9,0,153.3v197.2h3510.8V204.2z"></path>
+      <path class="wave1" d="M3510.8,282.8c-117.5-97.4-255.6-201.2-413.4-176.4c-111.4,17.5-184.7,114-282.7,161c-127.3,61-227.1-16.9-341-69.3c-153.7-70.6-343.6-51.4-480.7,48.6c-42.4,31-83,70-125.2,103.2h1643V282.8z"></path>
+      <path class="wave1" d="M3510.8,161.9c-21.6-2.7-43-3.1-62.3-1.6c-73,5.5-142.2,33.4-209.5,62.3c-67.3,28.9-134.9,59.4-207.2,70.9c-241.2,38.3-440.7-133.6-663.5-189c-201.9-50.2-415.8-6.8-611.8,62.6c-199.5,70.6-405.5,169.7-612.9,127.5c-146-29.7-268.2-125.9-403.1-189.1C501.4-6.7,247.5-4.2,0,50.1v299.8h3510.8V161.9z"></path>
+    </svg>
+  
+</section>
+
+
+  <script src="{% static 'assets/popper/popper.min.js'%}"></script>
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5'%}"></script>
+  <script src="{% static 'https://apis.google.com/js/plusone.js'%}"></script>
+  <script src="{% static 'assets/facebook-plugin/facebook-script.js'%}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'assets/dropdown/js/nav-dropdown.js'%}"></script>
+  <script src="{% static 'assets/dropdown/js/navbar-dropdown.js'%}"></script>
+  <script src="{% static 'assets/touchswipe/jquery.touch-swipe.min.js'%}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js'%}"></script>
+  <script src="{% static 'assets/viewportchecker/jquery.viewportchecker.js'%}"></script>
+  <script src="{% static 'assets/parallax/jarallax.min.js'%}"></script>
+  <script src="{% static 'assets/datatables/jquery.data-tables.min.js'%}"></script>
+  <script src="{% static 'assets/datatables/data-tables.bootstrap4.min.js'%}"></script>
+  <script src="{% static 'assets/tether/tether.min.js'%}"></script>
+  <script src="{% static 'assets/theme/js/script.js'%}"></script>
+  <script src = "{% static 'https://code.jquery.com/jquery-3.3.1.js'%}"></script>
+  <script src = "{% static 'https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js'%}"></script>
+  
+ <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+    <input name="animation" type="hidden">
+
+    <script>
+      
+     window.onload = function() {
+  document.getElementById('button').onclick = function() {
+    document.getElementById('modalOverlay').style.display = 'none'
+  };
+};
+    $(document).ready(function() {
+    $('#example').DataTable( {
+        "pagingType": "full_numbers"
+    } );
+} );
+    </script>
+  </body>
+</html>

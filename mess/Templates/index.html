@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>IIT Jammu Online Mess Feedback System</title>
+  
+  
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href= 'http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900&subset=latin,latin-ext'>
+
+      <link rel="stylesheet" href="{%static 'csslogin/style.css'%}">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>	  
+<script>
+function FormValidation(){
+//First Name Validation 
+    var inputmail =document.getElementById('inputmail').value;
+	var inputpassword1 = document.getElementById('inputpassword1').value;
+	var inputpassword2 = document.getElementById('inputpassword2').value;
+	document.getElementById('inputmail').style.borderColor = "black";
+		document.getElementById('inputpassword1').style.borderColor = "black";
+		document.getElementById('inputpassword2').style.borderColor = "black";
+	console.log("Here");
+    if(inputmail == ""){
+        alert('Please Enter First Name');
+        document.getElementById('inputmail').style.borderColor = "red";
+        return false;
+	}	
+    else if(inputpassword1 == ""){
+        alert('Please Enter Password');
+        document.getElementById('inputpassword1').style.borderColor = "red";
+        return false;
+	}	
+    else if(inputpassword2 == ""){
+        alert('Please Enter Password');
+        document.getElementById('inputpassword2').style.borderColor = "red";
+        return false;
+	}
+    else if(inputpassword1.length <6){
+        alert('Short Password');
+        document.getElementById('inputpassword1').style.borderColor = "red";
+        return false;
+	}	
+    else if(inputpassword2.length <6){
+        alert('Short Password');
+        document.getElementById('inputpassword2').style.borderColor = "red";
+        return false;
+	}
+    else if(inputpassword1 !=inputpassword2){
+        alert('Password Dont Match');
+        document.getElementById('inputpassword1').style.borderColor = "red";
+		document.getElementById('inputpassword2').style.borderColor = "red";
+        return false;
+	}
+	else
+	{
+		document.getElementById('inputmail').style.borderColor = "green";
+		document.getElementById('inputpassword1').style.borderColor = "green";
+		document.getElementById('inputpassword2').style.borderColor = "green";
+		return true;
+        
+	}
+    
+
+	}
+</script>
+</head>
+
+<body>
+
+<div class="login-reg-panel">
+		<div class="login-info-box">
+			<h2>Have an account?</h2>
+			
+			<label id="label-register" for="log-reg-show">Login</label>
+			<input type="radio" name="active-log-panel" id="log-reg-show"  checked="checked">
+		</div>
+							
+		<div class="register-info-box">
+			<h2>Don't have an account?</h2>
+			
+			<label id="label-login" for="log-login-show">Register</label>
+			<input type="radio" name="active-log-panel" id="log-login-show">
+		</div>
+		<form action="student" method="post" autocomplete="off">					
+		{% csrf_token %}
+		<div class="white-panel">
+			<div class="login-show">
+				<h2>LOGIN</h2>
+				<input type="email" id="checkmail" placeholder="Email" name="email">
+				<input type="password" id="checkpassword" placeholder="Password" name="password">
+				<input type="submit" value="Login">
+				<a href="">Forgot password?</a>
+			</div>
+		</form>	
+		<form action="index" autocomplete="off" method="post" onsubmit="return FormValidation();">
+			{% csrf_token %} 
+			<div class="register-show">
+				<h2>REGISTER</h2>
+				<input type="email" placeholder="Email" id="inputmail" name="email">
+				<input type="password" placeholder="Password" id="inputpassword1" name="password1">
+				<input type="password" placeholder="Confirm Password" id="inputpassword2" name="password2">
+				<input type="submit" value="Register"> 
+			</div>
+		</form>
+		
+		{% if messages %}
+		{% for message in messages %}
+		<script>
+			alert("{{message}}");
+		</script>
+
+		{% endfor %}
+		{% endif%} 
+		</div>
+	</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+<script> 
+$(document).ready(function(){
+    $('.login-info-box').fadeOut();
+    $('.login-show').addClass('show-log-panel');
+});
+
+
+$('.login-reg-panel input[type="radio"]').on('change', function() {
+    if($('#log-login-show').is(':checked')) {
+        $('.register-info-box').fadeOut(); 
+        $('.login-info-box').fadeIn();
+        
+        $('.white-panel').addClass('right-log');
+        $('.register-show').addClass('show-log-panel');
+        $('.login-show').removeClass('show-log-panel');
+        
+    }
+    else if($('#log-reg-show').is(':checked')) {
+        $('.register-info-box').fadeIn();
+        $('.login-info-box').fadeOut();
+        
+        $('.white-panel').removeClass('right-log');
+        
+        $('.login-show').addClass('show-log-panel');
+        $('.register-show').removeClass('show-log-panel');
+    }
+});
+  
+
+</script>
+</body>
+
+</html>
