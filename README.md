@@ -17,7 +17,7 @@ Open the Link http://127.0.0.1:8000 on browser
 	a) Login as Normal User:-
 If you have already registered then enter your Registered Email Id and Password otherwise Register First. Then it will be directed to the Feedback Page.
 	b) Login as Administration:- 
-To Login as an admin fill Email field as "sugandhiaayush0203@gmail.com" and Password Field with "123456". Then it will be directed to the Admin Page.
+To Login as an admin fill Email field as "abc@gmail.com" and Password Field with "123456". Then it will be directed to the Admin Page.
 
 
  4) Feedback Page:-
